@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Resume Strength Index</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
+EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .Header {
+            background-color: midnightblue;
+            padding: 10px 10px;
+            color: white;
+        }
+
+        .about-us,
+        .process {
+            padding: 10px 100px;
+        }
+
+        .about-us h2 {
+
+            padding: 20px 0px;
+        }
+
+        .about-us p {
+            font-size: 20px;
+            padding: 0px 30px;
+        }
+
+        .process h2 {
+            padding-bottom: 20px;
+        }
+
+        @media (max-width:760px) {
+
+            .about-us,
+            .process {
+                padding: 10px 30px;
+            }
+
+            .about-us p {
+                font-size: 18px;
+            }
+        }
+
+        .content {
+            padding: 20px 0px;
+        }
+
+        .content h2 {
+            padding-bottom: 20px;
+        }
+
+        .content-form {
+            padding: 0px 100px;
+        }
+
+        @media (max-width:760px) {
+            .content-form {
+                padding: 0px 30px;
+            }
+        }
+
+        .footer {
+            margin-top: 20px;
+            background-color: rgb(34, 30, 30);
+            color: rgb(207, 207, 207);
+            padding: 20px 0px;
+        }
+
+        .copy {
+            background-color: rgb(47, 42, 42);
+            color: rgb(207, 207, 207);
+            padding: 10px 0px 1px 0px;
+        }
+
+        @media (max-width:760px) {
+            .col-sm-12 {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+        <div class=" container d-flex justify-content-between">
+            <h2>ResumeStrengthIndex</h2>
+            <div class="check">
+                <a href="#content"><button class="btn btn-outline-primary">Check</button></a>
+            </div>
+        </div>
+    </div>
+    <!-- About section starts here -->
+    <div class="about-us text-center">
+        <h2 class="text-primary">About Us</h2>
+        <p class="text-secondary">
+            Hello there, Hope everyone is doing good. Here we are coming with a intersting tools called Resume
+            Strength Index.
+            Now a days a resume is very essential in getting a job and many of the students are applying to thejob
+            without reading
+            the job description and the required skills, So they are getting rejected. So we are creating a simpleway to
+            check whether
+            you are having the required skills by comaparing the job description and your resume. To know howto do
+            all these go through
+            the below process. And the best thing with this tool is we are not storing any of your data. Manywebsites
+            may steal your
+            data without your permission, so we are here to avoid that.<br>Happy hacking.... Thank you....
+        </p>
+    </div>
+    <div class="process text-center">
+        <h2 class="text-primary">Process</h2>
+        <div class="process-details">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <strong>Upload Your Resume</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Click on the Resume text box and paste your resume there. We are asking you to paste your
+                            resume because we don't want to store your data in terms of your privacy.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <strong>Upload Job Description</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            You need to upload the job description in the text filed given below the resume field.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <strong>Click on the check Strength</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            After uploading the both details in the text fields choose one of the appropriate option
+                            below to
+                            check various outputs with yout resume.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content section starts here  -->
+    <div class="content" id="content">
+        <h2 class="text-center text-primary">Check Your Resume Strength</h2>
+        <div class="content-form">
+            <form action="check_strength" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="resume" class="form-label"><b>Job Description :</b></label>
+                    <textarea rows="8" class="form-control" name="resume" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label"><b>Resume :</b></label>
+                    <textarea class="form-control" name="description" rows="8" id="description" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary">Check Strength</button>
+                </div>
+            </form>
+            <p>
+                <span><b>{{val}}%</b></span><br>
+                <span><b>{{res}}</b></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer section starts here -->
+    <div class="footer ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h4>Resume Strength Index</h4>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h4>About</h4>
+                    <p>Hello there, Hope everyone is doing good. Here we are coming with a intersting tools called
+                        Resume Strength Index.
+                        Now a days a resume is very essential in getting a job and many of the students are applying to
+                        the job without reading
+                        the job description and the required skills, So they are getting rejected. So we are creating a
+                        simple way to check whether
+                        you are having the required skills by comaparing the job description and your resume. To know
+                        how to do all these go through
+                        the below process. And the best thing with this tool is we are not storing any of your data.
+                        Many
+                        websites may steal your
+                        data without your permission, so we are here to avoid that.<br> <b>Happy hacking.....Thank
+                            you...</b> </p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h4>Mail US :</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="mail" class="form-label">Email :</label>
+                            <input type="mail" class="form-control" id="mail" required></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message :</label>
+                            <textarea class="form-control" rows="3" id="message" required></textarea>
+                        </div>
+                        <button class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy text-center">
+        <p>Designed & Developed By ECE Srikakulam.&#169; Reserved to ECE-Srikakulam</p>
+    </div>
+</body>
+
+</html>
